@@ -1,0 +1,154 @@
+/* Reset */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Fonts */
+
+h1, h2, h3, h4 {
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+}
+
+p {
+	font-weight: 300;
+	letter-spacing: 0.12em;
+	margin-top: 5vh;
+	font-size: calc(var(--index) * 1.2);
+}
+
+:root {
+	--index: calc(1vw + 1vh);
+	--gutter: 30px;
+	--side-small: 20;
+	--side-big: 30;
+	--depth: 3900px;
+	--transition: .75s cubic-bezier(0.435, 0, 0, 1.005)
+	--color-white: #fff;
+	--color-pink: #db929d;
+	--color-green: #7bd0ad;
+	--color-background: #fff;
+	--color-main: #fff;
+	--color-blue: #8295cc;
+}
+
+[dark]{
+	--color-pink: #6b5b8c;
+	--color-green: #5f71a7;
+	--color-background: #8295cc;
+	--color-main: #fff;
+	--color-blue: #6b5b8c;
+}
+
+/* Body */
+
+body {
+	background-color: var(--color-background);
+	color: var(--color-main);
+	font-size: calc(var(--index) * .8);
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1.2;
+	height: var(--depth);
+}
+
+/* Container */
+
+.container {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	perspective: 1500px;
+}
+
+/* Vert, left, right */
+
+.vert { 
+	border-radius: calc(var(--index) * 3);
+	width: calc(var(--index) * var(--side-small));
+	height: calc(var(--index) * var(--side-big));
+}
+
+.left {
+	right: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
+}
+
+.right {
+	left: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
+}
+
+/* Frames */
+
+.frames {
+	transform-style: preserve-3d;
+	height: 100%;
+}
+
+.item {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: var(--transition),opacity .75s ease;
+	will-change: transform;
+	transform-style: preserve-3d;
+}
+
+.text {
+	position: relative;
+	padding: 30px;
+	text-align: center;
+	word-wrap: break-word;
+}
+
+.me {
+	color: #323232;
+	text-align: center;
+	font-size: calc(var(--index) * 3);
+	width: min-content;
+}
+
+.main { 
+	background-color: var(--color-pink)
+}
+
+.about {
+	background-color: var(--color-green);
+}
+
+.works {
+	background-color: var(--color-blue)
+}
+
+.contact {
+	background-color: var(--color-pink)
+}
+
+.finally {
+	background-color: var(--color-green);
+}
+
+/* Adaptive */
+
+@media screen and (max-width: 768px){
+	:root{
+		--gutter: 15px
+	}
+}
+
+@media screen and (max-width: 630px){
+	:root {
+		--gutter: 0px
+	}
+	.right {
+		left: 0;
+	}
+	.left {
+		right: 0;
+	}
+}
